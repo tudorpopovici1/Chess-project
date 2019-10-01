@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+
+	<head>
+		
+		<link rel="stylesheet" type="text/css" href="css/main.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/splash.css"></link>
+		<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+		<title>ChessRevolution: A 2D Chess Game. Simple.</title>
+	</head>
+
+	<body>
+		
+		<div class="wrapper">
+			<img src="/images/logo.jpg"></img>
+			<h1 style="text-align: center;">ChessRevolution</h1>
+
+		</div>
+
+		<div class="announcement">
+			<h1>Good luck and have fun!</h1>
+		</div>
+
+		<div class="wrapper-stats">
+
+
+			<div class="stats-grid">
+
+
+					<div class="stats1">
+
+						<div id = "numberGames"><h1> Number of games active: <%= gamesInitialized %>
+							
+							games
+
+						</h1></div>
+
+
+						<div id = "numberWaiting"></div>
+					</div>
+
+					<div class="stats2">
+						<div id ="numberOnline"><h1>Online players: <%= playersOnline %>
+							
+						</h1></div>
+						<div id ="completedGames"><h1>Completed games: <%= gamesCompleted %>
+							
+						</h1></div>
+
+					</div>
+
+
+			</div>
+		</div>
+
+
+		<div class="button-wrapper">
+
+			<button id="redirect">Play the game</button>
+
+		</div>
+
+
+	</body>
+
+	<footer class="footer2">
+		<br>
+		<h1>ChessRevolution.</h1>
+		<p>Project realized by @Tudor-Alexandru Popovici and @Toma Zamfirescu</p>
+
+	</footer>
+
+	<script>
+		
+		var button = document.getElementById("redirect");
+
+		button.addEventListener("click", function(event){
+			event.preventDefault();
+			window.location.href = "/game";
+		});
+
+		function getCookie(name) {
+		    var dc = document.cookie;
+		    var prefix = name + "=";
+		    var begin = dc.indexOf("; " + prefix);
+		    if (begin == -1) {
+		        begin = dc.indexOf(prefix);
+		        if (begin != 0) 
+		        	return null;
+		    }
+		    else
+		    {
+		        begin += 2;
+		        var end = document.cookie.indexOf(";", begin);
+		        if (end == -1) {
+		        end = dc.length;
+		        }
+		    }
+		    
+		    return dc.substring(begin + prefix.length, end);
+		} 
+
+		function initCookie() {
+		    var myCookie = getCookie("visitorTimes");
+
+		    if (myCookie == null) {
+		        document.cookie="visitorTimes="+1;
+		    }
+		    else {
+		       var times = myCookie;
+		       times++;
+		       document.cookie="visitorTimes="+times;
+		    }
+
+		    return myCookie;
+		}
+
+		initCookie();
+
+		var cookies = getCookie("visitorTimes");
+
+		var toPut = document.getElementById("numberWaiting");
+		
+		toPut.innerHTML+= "<h1>Times you have accesed this website: " + cookies + "</h1>";
+
+	</script>
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+	<head>
+		
+		<link rel="stylesheet" type="text/css" href="css/main.css"></link></head>
+		<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+	</head>
+
+	<body>
+		
+		<h1 style="text-align: center;"> Hello! ></h1>
+
+		<div id = "numberGames">Number of games active: </div>
+		<div id = "numberWaiting">Players waiting for opponent: </div>
+		<div id ="numberOnline">Online players: </div>
+
+		<button style="text-align: center;" id="redirect">Play the game!</button>
+
+	</body>
+
+
+	<script>
+		
+		var button = document.getElementById("redirect");
+
+		button.addEventListener("click", function(event){
+			event.preventDefault();
+
+			window.open("game");
+
+			//window.location.href = "/game";
+		});
+
+	</script>
+
+	<script>
+
+		/*var games = document.getElementById("numberGames");
+		var numberWaiting = document.getElementById("numberWaiting");
+		var numberOnline = document.getElementById("numberOnline");
+		
+		function setup(){
+
+			socket = new WebSocket("ws://localhost:8080");
+
+			alert('ok');
+
+			socket.onopen = function(event)
+			{
+				var msg = new Object();
+				msg.type = "infoGame";
+				socket.send(JSON.stringify(msg));
+			}
+
+			socket.onmessage = function(event)
+			{
+				var msgIncoming = JSON.parse(event.data);
+
+				if(msgIncoming.type == "infoGame")
+				{
+					var playersOnline = msgIncoming.playersOnline;
+					var rooms = msgIncoming.rooms;
+
+					console.log(rooms);
+					console.log(playersOnline);
+
+					games.innerHTML += rooms;
+					numberOnline.innerHTML += playersOnline;
+				}
+
+			}
+
+			socket.onclose = function()
+			{
+
+			};
+
+		}
+
+		setup();*/
+
+	</script>
+
+</html>
