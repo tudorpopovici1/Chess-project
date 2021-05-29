@@ -15,7 +15,7 @@
     "fs": "0.0.1-security",
     "path": "^0.12.7",
     "url": "^0.11.0",
-    "ws": "^6.1.2"
+    "ws": "^7.4.6"
   },
   "devDependencies": {},
   "description": ""
